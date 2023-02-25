@@ -39,7 +39,7 @@ userSchema.methods.matchPassword = async function (password) {
 }
 
 userSchema.methods.generateToken = function () {
-    return jwt.sign({_id:this._id}, process.env.MY_JWT)
+    return jwt.sign({_id:this._id}, process.env.JWT_SECRET)
 }
 
 const User = mongoose.model('user', userSchema);

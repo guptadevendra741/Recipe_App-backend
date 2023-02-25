@@ -1,9 +1,9 @@
 const router = require("express").Router()
 const recipe = require("../models/recipe")
 
-router.get("/search/recipetitle", async(req,res)=>{
+router.get("/search/:id", async(req,res)=>{
     try {
-        const recipeList = await recipe.findOne({recipetitle:(req.params.recipetitle).toUpperCase()})
+        const recipeList = await recipe.findOne({userId:(req.params.id).toUpperCase()})
         if(!recipeList){
             return res.status(400).json({
                 status:"failed",
